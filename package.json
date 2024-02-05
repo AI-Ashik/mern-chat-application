@@ -13,8 +13,9 @@
     "prettier": "^2.1.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index"
+    "test": "SET NODE_ENV=test & mocha ",
+    "start": "NODE_ENV=development nodemon app.js",
+    "prod": "NODE_ENV=production node app.js"
   },
   "repository": "git+https://github.com/learnwithsumit/nodejs-basic-bangla.git",
   "keywords": [],
