@@ -21,11 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 mongoose
-  .connect(process.env.APP, {
-    // Updated mongoose connection
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.APP, {})
   .then(() => console.log("DB Is connected"))
   .catch((err) => console.error("Connection error:", err.message)); // Improved error logging
 
