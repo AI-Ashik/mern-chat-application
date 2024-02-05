@@ -1,5 +1,10 @@
 const express = require("express");
-const dotenv = require("dotenv");
+const { default: mongoose } = require("mongoose");
+require("dotenv").config();
 
 const app = express();
-dotenv.config();
+
+mongoose
+  .connect(process.env.APP)
+  .then(() => console.log("DB Is connected"))
+  .catch((err) => console.log(err.message));
