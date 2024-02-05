@@ -1,8 +1,11 @@
 // external imports
+require("./config/db");
 const express = require("express");
 const path = require("path");
-const mongoose = require("mongoose"); // Updated import
 const cookieParser = require("cookie-parser");
+const loginRouter = require("./router/loginRouter");
+const usersRouter = require("./router/usersRouter");
+const inboxRouter = require("./router/inboxRouter");
 
 // internal imports
 const {
@@ -20,10 +23,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-mongoose
-  .connect(process.env.APP, {})
-  .then(() => console.log("DB Is connected"))
-  .catch((err) => console.error("Connection error:", err.message)); // Improved error logging
+// routing setup
+app.use("/", loginRouter);
+app.use("/users", usersRouter);
+app.use("/inbox", inboxRouter);
 
 // Error handling middleware
 app.use(notFoundHandler);
