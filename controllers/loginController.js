@@ -1,7 +1,5 @@
 const getLogin = (req, res) => {
-  res.render("index", {
-    title: "Login - chat app",
-  });
+  res.render("index");
 };
 
 module.exports = { getLogin };

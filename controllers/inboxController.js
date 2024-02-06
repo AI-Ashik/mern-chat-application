@@ -1,7 +1,5 @@
 const getInbox = (req, res) => {
-  res.render("inbox", {
-    title: "Inbox - chat app",
-  });
+  res.render("inbox");
 };
 
 module.exports = { getInbox };

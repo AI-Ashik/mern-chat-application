@@ -1,7 +1,5 @@
 const getUsers = (req, res) => {
-  res.render("users", {
-    title: "Users - chat app",
-  });
+  res.render("users");
 };
 
 module.exports = { getUsers };
